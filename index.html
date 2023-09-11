@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora de Precio de Almendras con Cáscara</title>
+</head>
+<body>
+  <h1>Calculadora de Precio de Almendras con Cáscara</h1>
+  
+  <label for="precioPepitas">Precio por kilogramo de pepitas (€):</label>
+  <input type="number" id="precioPepitas" step="0.01" value="6">
+  
+  <br>
+  
+  <label for="rendimiento">Rendimiento (%):</label>
+  <input type="number" id="rendimiento" step="0.01" value="22">
+  
+  <br><br>
+
+  <button onclick="calcularPrecioPorKilo()">Calcular Precio por Kilo</button>
+  
+  <br><br>
+
+  <label for="kilosConCascara">Kilogramos de almendras con cáscara:</label>
+  <input type="number" id="kilosConCascara" step="0.01" value="1">
+  
+  <br><br>
+
+  <button onclick="calcularPrecioTotal()">Calcular Precio Total</button>
+  
+  <br><br>
+  
+  <p>El precio por kilogramo de almendras con cáscara es: <span id="resultadoPrecio"></span>€</p>
+  <p>El precio total de almendras con cáscara es: <span id="resultadoTotal"></span>€</p>
+
+  <script>
+    function calcularPrecioPorKilo() {
+      const precioPepitas = parseFloat(document.getElementById("precioPepitas").value);
+      const rendimiento = parseFloat(document.getElementById("rendimiento").value) / 100;
+
+      // Calcular el precio de las almendras con cáscara por kilogramo
+      const precioAlmendrasCascaraPorKilo = (precioPepitas * rendimiento).toFixed(2);
+
+      // Mostrar el resultado en la página
+      document.getElementById("resultadoPrecio").textContent = precioAlmendrasCascaraPorKilo + '€';
+    }
+
+    function calcularPrecioTotal() {
+      const precioPepitas = parseFloat(document.getElementById("precioPepitas").value);
+      const rendimiento = parseFloat(document.getElementById("rendimiento").value) / 100;
+      const kilosConCascara = parseFloat(document.getElementById("kilosConCascara").value);
+
+      // Calcular el precio total de almendras con cáscara
+      const precioTotal = (precioPepitas * rendimiento * kilosConCascara).toFixed(2);
+
+      // Mostrar el resultado en la página
+      document.getElementById("resultadoTotal").textContent = precioTotal + '€';
+    }
+  </script>
+</body>
+</html>
