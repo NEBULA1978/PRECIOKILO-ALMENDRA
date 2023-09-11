@@ -4,35 +4,43 @@
   <title>Calculadora de Precio de Almendras con Cáscara</title>
 </head>
 <body>
+  <!-- Título de la página -->
   <h1>Calculadora de Precio de Almendras con Cáscara</h1>
   
+  <!-- Etiqueta y entrada para ingresar el precio por kilogramo de pepitas -->
   <label for="precioPepitas">Precio por kilogramo de pepitas (€):</label>
   <input type="number" id="precioPepitas" step="0.01" value="6">
   
   <br>
   
+  <!-- Etiqueta y entrada para ingresar el rendimiento en porcentaje -->
   <label for="rendimiento">Rendimiento (%):</label>
   <input type="number" id="rendimiento" step="0.01" value="22">
   
   <br><br>
 
+  <!-- Botón para calcular el precio por kilo -->
   <button onclick="calcularPrecioPorKilo()">Calcular Precio por Kilo</button>
   
   <br><br>
 
+  <!-- Etiqueta y entrada para ingresar los kilogramos de almendras con cáscara -->
   <label for="kilosConCascara">Kilogramos de almendras con cáscara:</label>
   <input type="number" id="kilosConCascara" step="0.01" value="1">
   
   <br><br>
 
+  <!-- Botón para calcular el precio total -->
   <button onclick="calcularPrecioTotal()">Calcular Precio Total</button>
   
   <br><br>
   
+  <!-- Resultados que se mostrarán en la página -->
   <p>El precio por kilogramo de almendras con cáscara es: <span id="resultadoPrecio"></span>€</p>
   <p>El precio total de almendras con cáscara es: <span id="resultadoTotal"></span>€</p>
 
   <script>
+    // Función para calcular el precio por kilo de almendras con cáscara
     function calcularPrecioPorKilo() {
       const precioPepitas = parseFloat(document.getElementById("precioPepitas").value);
       const rendimiento = parseFloat(document.getElementById("rendimiento").value) / 100;
@@ -44,6 +52,7 @@
       document.getElementById("resultadoPrecio").textContent = precioAlmendrasCascaraPorKilo + '€';
     }
 
+    // Función para calcular el precio total de almendras con cáscara
     function calcularPrecioTotal() {
       const precioPepitas = parseFloat(document.getElementById("precioPepitas").value);
       const rendimiento = parseFloat(document.getElementById("rendimiento").value) / 100;
